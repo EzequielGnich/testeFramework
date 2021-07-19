@@ -12,7 +12,8 @@ const styles = StyleSheet.create<Styles>({
 		alignItems: "center",
 		flexDirection: "row",
 		justifyContent: "center",
-		borderRadius: 2
+		borderRadius: 2,
+		backgroundColor: "#fff"
 	}
 });
 

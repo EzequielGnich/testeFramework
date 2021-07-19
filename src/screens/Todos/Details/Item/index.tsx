@@ -58,49 +58,44 @@ const Item = ({ item, colors }: IItem) => {
 					}}
 				>
 					{item.completed ? (
-						<TouchableOpacity
-							style={[
-								styles.touchableTask,
-								{ backgroundColor: colors.warning }
-							]}
-						>
+						<TouchableOpacity style={[styles.touchableTask, { elevation: 1 }]}>
 							<IconMC
 								name="restore"
 								size={24}
-								color="#fff"
+								color={colors.warning}
 								style={{ marginRight: 5 }}
 							/>
-							<Text style={{ color: "#fff" }}>Reverter tarefa</Text>
+							<Text style={{ color: colors.warning, fontWeight: "bold" }}>
+								Reverter tarefa
+							</Text>
 						</TouchableOpacity>
 					) : (
 						<>
 							<TouchableOpacity
-								style={[
-									styles.touchableTask,
-									{ backgroundColor: colors.success }
-								]}
+								style={[styles.touchableTask, { elevation: 1 }]}
 							>
 								<IconMC
 									name="checkbox-marked-circle-outline"
 									size={24}
-									color="#fff"
+									color={colors.success}
 									style={{ marginRight: 5 }}
 								/>
-								<Text style={{ color: "#fff" }}>Concluir</Text>
+								<Text style={{ color: colors.success, fontWeight: "bold" }}>
+									Concluir
+								</Text>
 							</TouchableOpacity>
 							<TouchableOpacity
-								style={[
-									styles.touchableTask,
-									{ backgroundColor: colors.danger }
-								]}
+								style={[styles.touchableTask, , { elevation: 1 }]}
 							>
 								<IconMC
 									name="cancel"
 									size={24}
-									color="#fff"
+									color={colors.danger}
 									style={{ marginRight: 5 }}
 								/>
-								<Text style={{ color: "#fff" }}>Cancelar</Text>
+								<Text style={{ color: colors.danger, fontWeight: "bold" }}>
+									Cancelar
+								</Text>
 							</TouchableOpacity>
 						</>
 					)}
