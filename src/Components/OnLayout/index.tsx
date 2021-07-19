@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LayoutChangeEvent, View, ViewStyle } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import { useIsFocused } from "@react-navigation/native";
 
 interface Props {
