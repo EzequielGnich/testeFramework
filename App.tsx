@@ -19,7 +19,6 @@ const persistor = persistStore(store, null, () => {
 });
 
 const renderScreen = () => <Screens />;
-
 export default function App() {
 	return (
 		<Provider store={store}>
