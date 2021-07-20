@@ -14,7 +14,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
 import Menu from "./Menu";
 import Posts from "./Posts";
+
 import Albums from "./Albums";
+import AlbumsDetail from "./Albums/Details";
 
 import Todos from "./Todos";
 import TodosDetails from "./Todos/Details";
@@ -42,6 +44,7 @@ const AlbumsScreens = () => {
 	return (
 		<Stack.Navigator headerMode="none">
 			<Stack.Screen name="Albums" component={Albums} />
+			<Stack.Screen name="AlbumsDetail" component={AlbumsDetail} />
 		</Stack.Navigator>
 	);
 };
