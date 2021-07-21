@@ -37,7 +37,7 @@ export function getIndicesAlbums(callback?: Function) {
 		});
 
 		try {
-			let response = await api.sendGet(`/albums`, null);
+			let response = await api.sendGet(`/albums?_expand=user`, null);
 
 			let result = await response.json();
 

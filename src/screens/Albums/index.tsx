@@ -35,10 +35,12 @@ const Albums = props => {
 		<OnLayout style={{ flex: 1 }}>
 			{({ width, height }) => (
 				<FlatList
+					contentContainerStyle={{ padding: 10, marginBottom: 10 }}
 					data={indices || []}
 					keyExtractor={item => item.id}
 					renderItem={({ item }) => (
 						<ListItem
+							fonts={fonts}
 							item={item}
 							colors={colors}
 							handlePress={showAlbumsDetails}
