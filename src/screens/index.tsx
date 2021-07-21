@@ -7,11 +7,6 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// import { State } from "../store/reducers";
-// import { LoginState } from "../store/reducers/login";
-// import { isLogged, isTokenExpired } from "../helpers/auth";
-
-import Home from "./Home";
 import Menu from "./Menu";
 import Posts from "./Posts";
 
@@ -24,14 +19,6 @@ import TodosDetails from "./Todos/Details";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-const HomeScreens = () => {
-	return (
-		<Stack.Navigator headerMode="none">
-			<Stack.Screen name="Home" component={Home} />
-		</Stack.Navigator>
-	);
-};
 
 const PostsScreens = () => {
 	return (
@@ -63,7 +50,6 @@ const TodosScreens = () => {
 const App = () => {
 	return (
 		<Tab.Navigator tabBar={props => <Menu {...props} />}>
-			<Tab.Screen name="Home" component={HomeScreens} />
 			<Tab.Screen name="Posts" component={PostsScreens} />
 			<Tab.Screen name="Albums" component={AlbumsScreens} />
 			<Tab.Screen name="Todos" component={TodosScreens} />

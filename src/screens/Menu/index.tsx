@@ -1,10 +1,10 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import { View, TouchableOpacity, Platform, Keyboard, Text } from "react-native";
-import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
-import { withTheme } from "react-native-paper";
-
-import _ from "lodash";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import _ from "lodash";
+import { View, TouchableOpacity, Platform, Keyboard, Text } from "react-native";
+
+import { withTheme } from "react-native-paper";
+import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Menu = props => {
 	const {
@@ -35,9 +35,6 @@ const Menu = props => {
 
 	const handleClick = (name: string) => {
 		switch (name) {
-			case "Home":
-				navigate(name, { screen: "Home", params: { screen: "Home" } });
-				break;
 			case "Posts":
 				navigate(name, { screen: "Home", params: { screen: "Posts" } });
 				break;
@@ -48,7 +45,7 @@ const Menu = props => {
 				navigate(name, { screen: "Home", params: { screen: "Todos" } });
 				break;
 			default:
-				navigate(name, { screen: "Home" });
+				navigate(name, { screen: "Posts" });
 				break;
 		}
 	};
@@ -68,11 +65,6 @@ const Menu = props => {
 			}}
 		>
 			{[
-				{
-					icon: "home",
-					text: "Início",
-					onPress: () => handleClick("Home")
-				},
 				{
 					icon: "post",
 					text: "Postagens",
