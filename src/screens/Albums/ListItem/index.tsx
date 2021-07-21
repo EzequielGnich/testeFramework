@@ -17,38 +17,15 @@ interface IItem {
 const ListItem = ({ item, colors, fonts, handlePress }: IItem) => {
 	const uri = `https://lorempixel.com/400/200/people/${item.userId}/`;
 	return (
-		<View
-			key={item.id}
-			style={{
-				padding: 10,
-				marginHorizontal: 6,
-				marginVertical: 6,
-				minHeight: 120,
-				elevation: 5,
-				borderRadius: 5,
-				backgroundColor: "#FFF",
-				flexDirection: "row"
-			}}
-		>
+		<View key={item.id} style={styles.container}>
 			<View style={{ flex: 1 }}>
-				<View
-					style={{
-						flex: 1,
-						flexDirection: "row",
-						alignItems: "center"
-					}}
-				>
+				<View style={styles.cardHeader}>
 					<View style={{ marginRight: 5 }}>
 						<Image
 							source={{
 								uri
 							}}
-							style={{
-								width: 60,
-								height: 60,
-								borderRadius: 30,
-								resizeMode: "cover"
-							}}
+							style={styles.cardImage}
 						/>
 					</View>
 					<View>
@@ -76,12 +53,7 @@ const ListItem = ({ item, colors, fonts, handlePress }: IItem) => {
 					</Text>
 				</View>
 			</View>
-			<View
-				style={{
-					justifyContent: "center",
-					paddingHorizontal: 10
-				}}
-			>
+			<View style={styles.cardFooter}>
 				<TouchableOpacity onPress={() => handlePress(item.userId)}>
 					<IconMC
 						name="chevron-right-circle-outline"

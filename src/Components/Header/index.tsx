@@ -6,16 +6,16 @@ import {
 	ViewStyle,
 	Text
 } from "react-native";
-import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
-
-import styles from "./styles";
 import {
 	useNavigation,
 	useNavigationState,
 	StackActions
 } from "@react-navigation/native";
+
+import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
 import { withTheme } from "react-native-paper";
 
+import styles from "./styles";
 interface Type {
 	canGoBack?: boolean;
 	title: string;

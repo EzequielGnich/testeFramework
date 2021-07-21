@@ -6,11 +6,12 @@ import { Text, View, FlatList, RefreshControl } from "react-native";
 import { withTheme } from "react-native-paper";
 import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
 
+import { getIndicesAlbums } from "../../store/actions/albums";
+
 import { State } from "../../store/reducers";
 
 import OnLayout from "../../Components/OnLayout";
 import ListItem from "./ListItem";
-import { getIndicesAlbums } from "../../store/actions/albums";
 
 const Albums = props => {
 	const dispatch = useDispatch();

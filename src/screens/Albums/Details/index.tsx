@@ -70,7 +70,7 @@ const Details = props => {
 												fontWeight: fonts.medium.fontWeight
 											}}
 										>
-											"Não foi encontrado nenhum usuário ativo"
+											"Esse usuário ainda não possui albums"
 										</Text>
 									</View>
 									<View

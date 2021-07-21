@@ -1,28 +1,37 @@
-import { StyleSheet, ViewStyle } from "react-native";
+import { ImageStyle, StyleSheet, ViewStyle } from "react-native";
 
 interface Styles {
-	indicesContainer: ViewStyle;
+	container: ViewStyle;
+	cardHeader: ViewStyle;
+	cardImage: ImageStyle;
+	cardFooter: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
-	indicesContainer: {
-		paddingHorizontal: 15,
-		paddingVertical: 10,
-
-		marginVertical: 10,
-		marginHorizontal: 10,
-
-		borderRadius: 8,
-
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 3.84,
-
-		elevation: 5
+	container: {
+		padding: 10,
+		marginHorizontal: 6,
+		marginVertical: 6,
+		minHeight: 120,
+		elevation: 5,
+		borderRadius: 5,
+		backgroundColor: "#FFF",
+		flexDirection: "row"
+	},
+	cardHeader: {
+		flex: 1,
+		flexDirection: "row",
+		alignItems: "center"
+	},
+	cardImage: {
+		width: 60,
+		height: 60,
+		borderRadius: 30,
+		resizeMode: "cover"
+	},
+	cardFooter: {
+		justifyContent: "center",
+		paddingHorizontal: 10
 	}
 });
 

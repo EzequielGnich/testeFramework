@@ -68,7 +68,7 @@ const Details = props => {
 												fontWeight: fonts.medium.fontWeight
 											}}
 										>
-											"Não foi encontrado nenhum usuário ativo"
+											"Esse usuário não possui tarefas cadastradas"
 										</Text>
 									</View>
 									<View
