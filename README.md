@@ -28,7 +28,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 Para instalar o <testeFramework>, siga estas etapas:
 
 Windows:
-````git clone https://github.com/EzequielGnich/testeFramework.git```
+```git clone https://github.com/EzequielGnich/testeFramework.git```
 
 ```cd testeFramework```
 
