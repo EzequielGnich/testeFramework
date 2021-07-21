@@ -12,6 +12,7 @@ import OnLayout from "../../../Components/OnLayout";
 import Header from "../../../Components/Header";
 import Item from "./Item";
 import Loading from "../../../Components/Loading";
+import ListEmpty from "../../../Components/ListEmptyWarning";
 
 const Details = props => {
 	const { id } = props.route.params;
@@ -38,6 +39,7 @@ const Details = props => {
 						<Loading loading={loading.getAll} />
 					) : (
 						<FlatList
+							contentContainerStyle={{ marginTop: 60, paddingBottom: 60 }}
 							data={items || []}
 							keyExtractor={item => item.id}
 							renderItem={({ item }) => <Item item={item} colors={colors} />}
@@ -45,57 +47,21 @@ const Details = props => {
 								<RefreshControl refreshing={loading.getAll} onRefresh={load} />
 							}
 							ListEmptyComponent={
-								<View
-									style={{
-										width: width,
-										height: height,
-										marginTop: -60
-									}}
-								>
-									<View style={{ flex: 1 }} />
-									<View
-										style={{
-											flex: 1,
-											alignItems: "center",
-											justifyContent: "center"
-										}}
-									>
-										<Text
-											style={{
-												color: colors.warning,
-												fontSize: 18,
-												fontFamily: fonts.medium.fontFamily,
-												fontWeight: fonts.medium.fontWeight
-											}}
-										>
-											"Esse usuário não possui tarefas cadastradas"
-										</Text>
-									</View>
-									<View
-										style={{
-											flex: 1,
-											flexDirection: "column",
-											justifyContent: "flex-end",
-											alignItems: "center",
-											padding: 25
-										}}
-									>
+								<ListEmpty
+									title="Esse usuário não possui tarefas cadastradas"
+									width={width}
+									height={height}
+									colors={colors}
+									fonts={fonts}
+									icon={
 										<IconMC
 											name="help-rhombus"
 											size={32}
 											color={colors.secondary}
 										/>
-										<Text
-											style={{
-												textAlign: "center",
-												fontFamily: fonts.light.fontFamily
-											}}
-										>
-											Você pode clicar na tela e arrastar para baixo para
-											recarregar a lista
-										</Text>
-									</View>
-								</View>
+									}
+									showWarningRefreshControl={true}
+								/>
 							}
 						/>
 					)}

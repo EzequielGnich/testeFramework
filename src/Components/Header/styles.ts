@@ -16,6 +16,7 @@ const styles = StyleSheet.create<Styles>({
 		alignItems: "center",
 		height: 50,
 		paddingHorizontal: 16,
+		width: "100%",
 		marginLeft: Platform.select({ web: 300, default: 0 })
 	}
 });

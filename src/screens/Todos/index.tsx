@@ -12,6 +12,7 @@ import { State } from "../../store/reducers";
 
 import OnLayout from "../../Components/OnLayout";
 import Item from "./ListItem";
+import ListEmpty from "../../Components/ListEmptyWarning";
 
 const Todos = props => {
 	const dispatch = useDispatch();
@@ -38,7 +39,10 @@ const Todos = props => {
 		<OnLayout style={{ flex: 1 }}>
 			{({ width, height }) => (
 				<FlatList
-					contentContainerStyle={{ padding: 10, marginBottom: 10 }}
+					contentContainerStyle={{
+						padding: 10,
+						marginBottom: 10
+					}}
 					data={indices || []}
 					keyExtractor={item => item.id}
 					renderItem={({ item }) => (
@@ -53,56 +57,21 @@ const Todos = props => {
 						<RefreshControl refreshing={loading.getAll} onRefresh={load} />
 					}
 					ListEmptyComponent={
-						<View
-							style={{
-								width: width,
-								height: height
-							}}
-						>
-							<View style={{ flex: 1 }} />
-							<View
-								style={{
-									flex: 1,
-									alignItems: "center",
-									justifyContent: "center"
-								}}
-							>
-								<Text
-									style={{
-										color: colors.warning,
-										fontSize: 18,
-										fontFamily: fonts.medium.fontFamily,
-										fontWeight: fonts.medium.fontWeight
-									}}
-								>
-									"Não foi encontrado nenhum usuário ativo"
-								</Text>
-							</View>
-							<View
-								style={{
-									flex: 1,
-									flexDirection: "column",
-									justifyContent: "flex-end",
-									alignItems: "center",
-									padding: 25
-								}}
-							>
+						<ListEmpty
+							title="Não foi encontrado nenhum usuário ativo"
+							width={width}
+							height={height}
+							colors={colors}
+							fonts={fonts}
+							icon={
 								<IconMC
 									name="help-rhombus"
 									size={32}
 									color={colors.secondary}
 								/>
-								<Text
-									style={{
-										textAlign: "center",
-										fontFamily: fonts.light.fontFamily
-									}}
-								>
-									Você pode clicar na tela e arrastar para baixo para recarregar
-									a lista
-								</Text>
-							</View>
-						</View>
+							}
+							showWarningRefreshControl={true}
+						/>
 					}
 				/>
 			)}

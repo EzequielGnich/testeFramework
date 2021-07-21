@@ -45,7 +45,7 @@ const Header = ({
 				styles.headerContainerStyle,
 				canGoBack ? {} : { justifyContent: "center" },
 				containerStyle,
-				{ backgroundColor: colors.primary }
+				{ backgroundColor: colors.primary, position: "absolute", zIndex: 1 }
 			]}
 		>
 			{canGoBack && (
