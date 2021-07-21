@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	ScrollView,
-	Text,
-	View,
-	Modal,
-	StyleSheet,
-	Pressable,
-	TouchableOpacity
-} from "react-native";
+import { ScrollView, Text, View, Modal, TouchableOpacity } from "react-native";
 
 import { withTheme } from "react-native-paper";
 import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
-import { getComments, setValue } from "../../../store/actions/posts";
-import OnLayout from "../../../Components/OnLayout";
-import { IComment } from "../../../Types/IComment";
+
+import { setValue } from "../../../store/actions/posts";
+
 import { State } from "../../../store/reducers";
+import { IComment } from "../../../Types/IComment";
+
+import OnLayout from "../../../Components/OnLayout";
+
+import styles from "./styles";
 
 const CommentsModal = props => {
 	const { colors, fonts } = props.theme;
@@ -48,16 +45,7 @@ const CommentsModal = props => {
 							</TouchableOpacity>
 							<ScrollView style={{ flex: 1 }}>
 								{(item.comments || []).map((c: IComment) => (
-									<View
-										style={{
-											padding: 10,
-											margin: 10,
-											minHeight: 200,
-											elevation: 5,
-											backgroundColor: "#fff",
-											borderRadius: 5
-										}}
-									>
+									<View key={c.id} style={styles.cardContainer}>
 										<View style={{ flex: 1, padding: 5 }}>
 											<Text
 												style={{
@@ -79,14 +67,7 @@ const CommentsModal = props => {
 												{c.body.replace("\n", " ")}
 											</Text>
 										</View>
-										<View
-											style={{
-												flex: 1,
-												flexDirection: "row",
-												justifyContent: "flex-end",
-												marginRight: 5
-											}}
-										>
+										<View style={styles.cardFooter}>
 											<Text style={{ fontFamily: fonts.light.fontFamily }}>
 												{c.email}
 											</Text>
@@ -103,35 +84,3 @@ const CommentsModal = props => {
 };
 
 export default withTheme(CommentsModal);
-
-const styles = StyleSheet.create({
-	centeredView: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center"
-	},
-	modalView: {
-		flex: 1,
-		backgroundColor: "white",
-		alignItems: "center",
-		position: "relative",
-
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
-		elevation: 5
-	},
-	textStyle: {
-		color: "white",
-		fontWeight: "bold",
-		textAlign: "center"
-	},
-	modalText: {
-		marginBottom: 15,
-		textAlign: "center"
-	}
-});
