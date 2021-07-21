@@ -41,17 +41,56 @@ const CommentsModal = props => {
 					<View style={[styles.centeredView]}>
 						<View style={[styles.modalView, { width: width }]}>
 							<TouchableOpacity
-								style={{ position: "absolute", top: 10, right: 10 }}
+								style={{ position: "absolute", top: 10, right: 10, zIndex: 1 }}
 								onPress={() => closeModal()}
 							>
 								<IconMC name="close" size={26} color={colors.danger} />
 							</TouchableOpacity>
 							<ScrollView style={{ flex: 1 }}>
 								{(item.comments || []).map((c: IComment) => (
-									<View style={{ padding: 10, margin: 10 }}>
-										<Text>{c.email}</Text>
-										<Text>{c.name}</Text>
-										<Text>{c.body}</Text>
+									<View
+										style={{
+											padding: 10,
+											margin: 10,
+											minHeight: 200,
+											elevation: 5,
+											backgroundColor: "#fff",
+											borderRadius: 5
+										}}
+									>
+										<View style={{ flex: 1, padding: 5 }}>
+											<Text
+												style={{
+													fontSize: 16,
+													fontFamily: fonts.medium.fontFamily
+												}}
+											>
+												{c.name}
+											</Text>
+										</View>
+										<View style={{ flex: 1, padding: 5 }}>
+											<Text
+												style={{
+													textAlign: "center",
+													fontFamily: fonts.regular.fontFamily,
+													fontSize: 14
+												}}
+											>
+												{c.body.replace("\n", " ")}
+											</Text>
+										</View>
+										<View
+											style={{
+												flex: 1,
+												flexDirection: "row",
+												justifyContent: "flex-end",
+												marginRight: 5
+											}}
+										>
+											<Text style={{ fontFamily: fonts.light.fontFamily }}>
+												{c.email}
+											</Text>
+										</View>
 									</View>
 								))}
 							</ScrollView>
@@ -69,13 +108,11 @@ const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
 		justifyContent: "center",
-		alignItems: "center",
-		marginTop: 10
+		alignItems: "center"
 	},
 	modalView: {
 		flex: 1,
 		backgroundColor: "white",
-		paddingVertical: 35,
 		alignItems: "center",
 		position: "relative",
 
