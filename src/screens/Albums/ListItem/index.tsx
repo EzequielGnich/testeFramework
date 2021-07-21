@@ -15,6 +15,7 @@ interface IItem {
 }
 
 const ListItem = ({ item, colors, fonts, handlePress }: IItem) => {
+	const uri = `https://lorempixel.com/400/200/people/${item.userId}/`;
 	return (
 		<View
 			key={item.id}
@@ -25,58 +26,59 @@ const ListItem = ({ item, colors, fonts, handlePress }: IItem) => {
 				minHeight: 120,
 				elevation: 5,
 				borderRadius: 5,
-				backgroundColor: "#FFF"
+				backgroundColor: "#FFF",
+				flexDirection: "row"
 			}}
 		>
-			<View
-				style={{
-					flex: 1,
-					flexDirection: "row",
-					alignItems: "center"
-				}}
-			>
-				<View style={{ marginRight: 5 }}>
-					<Image
-						source={{
-							uri: `https://lorempixel.com/400/200/people/${item.userId}/`
-						}}
-						style={{
-							width: 60,
-							height: 60,
-							borderRadius: 30,
-							resizeMode: "cover"
-						}}
-					/>
+			<View style={{ flex: 1 }}>
+				<View
+					style={{
+						flex: 1,
+						flexDirection: "row",
+						alignItems: "center"
+					}}
+				>
+					<View style={{ marginRight: 5 }}>
+						<Image
+							source={{
+								uri
+							}}
+							style={{
+								width: 60,
+								height: 60,
+								borderRadius: 30,
+								resizeMode: "cover"
+							}}
+						/>
+					</View>
+					<View>
+						<Text
+							style={{
+								fontSize: 16,
+								fontFamily: fonts.regular.fontFamily
+							}}
+						>
+							{item.user.name}
+						</Text>
+						<Text style={{ fontFamily: fonts.light.fontFamily }}>
+							{item.user.email}
+						</Text>
+					</View>
 				</View>
-				<View>
+				<View style={{ flex: 1, padding: 10 }}>
 					<Text
 						style={{
 							fontSize: 16,
-							fontFamily: fonts.regular.fontFamily
+							fontFamily: fonts.medium.fontFamily
 						}}
 					>
-						{item.user.name}
-					</Text>
-					<Text style={{ fontFamily: fonts.light.fontFamily }}>
-						{item.user.email}
+						{item.title}
 					</Text>
 				</View>
 			</View>
-			<View style={{ flex: 1, padding: 10 }}>
-				<Text
-					style={{
-						fontSize: 16,
-						fontFamily: fonts.medium.fontFamily
-					}}
-				>
-					{item.title}
-				</Text>
-			</View>
 			<View
 				style={{
-					flex: 1,
-					justifyContent: "flex-end",
-					flexDirection: "row",
+					justifyContent: "center",
 					paddingHorizontal: 10
 				}}
 			>
