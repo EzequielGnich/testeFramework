@@ -1,63 +1,44 @@
-# :space_invader: React Native Template TypeScript
+# Teste vaga Framework
 
-<p>
-  <a href="https://travis-ci.org/react-native-community/react-native-template-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/react-native-community/react-native-template-typescript.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript#readme">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
-  </a>
-</p>
+![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-> Clean and minimalist React Native template for a quick start with TypeScript.
+> Projeto desenvolvido como teste técnico.
 
-## :star: Features
+### Ajustes e melhorias
 
-- Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
-- Consistent with the default React Native template
-- Minimal additional dependencies
+O projeto ainda está em desenvolvimento e precisará de outras atualizações para melhor funcionamento:
 
-## :arrow_forward: Usage
+- [ ] Desenvolvimento de uma API própria
+- [ ] Ajustes de layout
+- [ ] Definir o tipo de banco de dados
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+* Você instalou a versão mais recente de `<Nodejs / ^14.15.0>`
+* Você tem uma máquina `<Windows>`. (O teste do aplicativo foi feito apenas em máquinas com sistema operacional Windows)
+
+## 🚀 Instalando <testeFramework>
+
+Para instalar o <testeFramework>, siga estas etapas:
+
+Windows:
+````git clone https://github.com/EzequielGnich/testeFramework.git```
+
+```cd testeFramework```
+
+```yarn```
+
+```yarn android```
 ```
 
-### Usage with older versions of React Native
+## 📝 Licença
 
-#### e.g. `react-native@0.63.x`
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript@6.5.*
-```
-
-See the below table to find out which version of the template to use.
-
-#### React Native <=> Template Version
-
-| React Native  	| Template  	|
-|---	            |---	        |
-| 0.64  	        | 6.6.*       |
-| 0.63  	        | 6.5.*       |
-| 0.62  	        | 6.4.*       |
-| 0.61  	        | 6.3.*       |
-| 0.60  	        | 6.2.*       |
-
-### Note on the legacy CLI
-There seems to be quite some confusion about the legacy CLI. This template only works with the new CLI. Make sure you have uninstalled the legacy `react-native-cli` first (`npm uninstall -g react-native-cli`), for the below command to work. If you wish to not use `npx`, you can also install the new CLI globally (`npm i -g @react-native-community/cli` or `yarn global add @react-native-community/cli`).
-
-Further information can be found here: https://github.com/react-native-community/cli#about
-
-## :computer: Contributing
-
-Contributions are very welcome. Please check out the [contributing document](CONTRIBUTING.md).
-
-## :bookmark: License
-
-This project is [MIT](LICENSE) licensed.
+[⬆ Voltar ao topo](#testeFramework)<br>
