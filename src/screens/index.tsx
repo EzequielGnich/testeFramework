@@ -17,6 +17,7 @@ import Posts from "./Posts";
 
 import Albums from "./Albums";
 import AlbumsDetail from "./Albums/Details";
+import Photos from "./Albums/Details/Photos";
 
 import Todos from "./Todos";
 import TodosDetails from "./Todos/Details";
@@ -45,6 +46,7 @@ const AlbumsScreens = () => {
 		<Stack.Navigator headerMode="none">
 			<Stack.Screen name="Albums" component={Albums} />
 			<Stack.Screen name="AlbumsDetail" component={AlbumsDetail} />
+			<Stack.Screen name="Photos" component={Photos} />
 		</Stack.Navigator>
 	);
 };

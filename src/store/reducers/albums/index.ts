@@ -69,20 +69,20 @@ export const reducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				errors: initialState.errors,
-				loading: { getAll: true }
+				loading: { getPhotos: true }
 			};
 
 		case actions.GET_PHOTOS_BY_ALBUMS_SUCCESS:
 			return {
 				...state,
 				photos: payload,
-				loading: { getAll: false }
+				loading: { getPhotos: false }
 			};
 
 		case actions.GET_PHOTOS_BY_ALBUMS_FAILED:
 			return {
 				...state,
-				loading: { getAll: false },
+				loading: { getPhotos: false },
 				errors: payload
 			};
 

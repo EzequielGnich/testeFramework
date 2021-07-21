@@ -5,13 +5,15 @@ import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { Surface } from "react-native-paper";
 import { IAlbums } from "../../../../Types/IAlbums";
+import { useNavigation } from "@react-navigation/native";
 
 interface IItem {
 	colors: any;
 	item: IAlbums;
 }
 const ListItem = ({ item, colors }: IItem) => {
-	console.log(item);
+	const navigation = useNavigation();
+
 	return (
 		<Surface
 			style={{
@@ -43,7 +45,9 @@ const ListItem = ({ item, colors }: IItem) => {
 					<View style={{ flex: 1, paddingHorizontal: 5 }}>
 						<Text style={{ paddingHorizontal: 5 }}>{item.title}</Text>
 					</View>
-					<TouchableOpacity onPress={() => {}}>
+					<TouchableOpacity
+						onPress={() => navigation.navigate("Photos", { id: item.id })}
+					>
 						<IconMC
 							name="chevron-right-circle-outline"
 							size={32}
