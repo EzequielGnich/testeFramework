@@ -2,6 +2,7 @@ import * as actions from "../../actions/albums";
 
 let initialState = {
 	items: [],
+	photos: [],
 	indices: [],
 	loading: {},
 	errors: {}
@@ -58,6 +59,27 @@ export const reducer = (state = initialState, { type, payload }) => {
 			};
 
 		case actions.GET_ALBUMS_BY_USER_FAILED:
+			return {
+				...state,
+				loading: { getAll: false },
+				errors: payload
+			};
+
+		case actions.GET_PHOTOS_BY_ALBUMS:
+			return {
+				...state,
+				errors: initialState.errors,
+				loading: { getAll: true }
+			};
+
+		case actions.GET_PHOTOS_BY_ALBUMS_SUCCESS:
+			return {
+				...state,
+				photos: payload,
+				loading: { getAll: false }
+			};
+
+		case actions.GET_PHOTOS_BY_ALBUMS_FAILED:
 			return {
 				...state,
 				loading: { getAll: false },

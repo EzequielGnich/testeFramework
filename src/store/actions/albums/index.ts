@@ -3,16 +3,22 @@ import * as api from "../../../services/api";
 
 // import { State } from "../../reducers";
 
-export const GET_INDICES_ALBUMS = "[TODOS] GET_INDICES_ALBUMS";
-export const GET_INDICES_ALBUMS_SUCCESS = "[TODOS] GET_INDICES_ALBUMS_SUCCESS";
-export const GET_INDICES_ALBUMS_FAILED = "[TODOS] GET_INDICES_ALBUMS_FAILED";
+export const GET_INDICES_ALBUMS = "[ALBUMS] GET_INDICES_ALBUMS";
+export const GET_INDICES_ALBUMS_SUCCESS = "[ALBUMS] GET_INDICES_ALBUMS_SUCCESS";
+export const GET_INDICES_ALBUMS_FAILED = "[ALBUMS] GET_INDICES_ALBUMS_FAILED";
 
-export const GET_ALBUMS_BY_USER = "[TODOS] GET_ALBUMS_BY_USER";
-export const GET_ALBUMS_BY_USER_SUCCESS = "[TODOS] GET_ALBUMS_BY_USER_SUCCESS";
-export const GET_ALBUMS_BY_USER_FAILED = "[TODOS] GET_ALBUMS_BY_USER_FAILED";
+export const GET_ALBUMS_BY_USER = "[ALBUMS] GET_ALBUMS_BY_USER";
+export const GET_ALBUMS_BY_USER_SUCCESS = "[ALBUMS] GET_ALBUMS_BY_USER_SUCCESS";
+export const GET_ALBUMS_BY_USER_FAILED = "[ALBUMS] GET_ALBUMS_BY_USER_FAILED";
 
-export const SET_VALUE = "[TODOS] SET_VALUE";
-export const CLEAR_VALUES = "[TODOS] CLEAR_VALUES";
+export const GET_PHOTOS_BY_ALBUMS = "[ALBUMS] GET_PHOTOS_BY_ALBUMS";
+export const GET_PHOTOS_BY_ALBUMS_SUCCESS =
+	"[ALBUMS] GET_PHOTOS_BY_ALBUMS_SUCCESS";
+export const GET_PHOTOS_BY_ALBUMS_FAILED =
+	"[ALBUMS] GET_PHOTOS_BY_ALBUMS_FAILED";
+
+export const SET_VALUE = "[ALBUMS] SET_VALUE";
+export const CLEAR_VALUES = "[ALBUMS] CLEAR_VALUES";
 
 export function setValue(payload) {
 	return dispatch => {
@@ -90,6 +96,44 @@ export function getAlbumsByUser(id, callback?: Function) {
 
 			dispatch({
 				type: GET_ALBUMS_BY_USER_FAILED,
+				payload: {
+					error: "Connection error"
+				}
+			});
+
+			callback && callback("Connection error");
+		}
+	};
+}
+
+export function getPhotosByAlbums(id, callback?: Function) {
+	return async (dispatch, getState) => {
+		dispatch({
+			type: GET_PHOTOS_BY_ALBUMS
+		});
+
+		try {
+			let response = await api.sendGet(`/albums/${id}/photos`, null);
+
+			let result = await response.json();
+
+			if (result.length) {
+				dispatch({
+					type: GET_PHOTOS_BY_ALBUMS_SUCCESS,
+					payload: result
+				});
+
+				callback && callback(null, result);
+			} else {
+				dispatch({
+					type: GET_PHOTOS_BY_ALBUMS_FAILED
+				});
+			}
+		} catch (error) {
+			console.log(error);
+
+			dispatch({
+				type: GET_PHOTOS_BY_ALBUMS_FAILED,
 				payload: {
 					error: "Connection error"
 				}
