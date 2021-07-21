@@ -11,7 +11,7 @@ import { getIndicesTodos } from "../../store/actions/todos";
 import { State } from "../../store/reducers";
 
 import OnLayout from "../../Components/OnLayout";
-import Item from "./Item";
+import Item from "./ListItem";
 
 const Todos = props => {
 	const dispatch = useDispatch();
@@ -28,6 +28,8 @@ const Todos = props => {
 		load();
 	}, []);
 
+	console.log(indices);
+
 	const showUserDetails = id => {
 		navigation.navigate("TodosDetails", { id });
 	};
@@ -36,10 +38,16 @@ const Todos = props => {
 		<OnLayout style={{ flex: 1 }}>
 			{({ width, height }) => (
 				<FlatList
+					contentContainerStyle={{ padding: 10, marginBottom: 10 }}
 					data={indices || []}
 					keyExtractor={item => item.id}
 					renderItem={({ item }) => (
-						<Item item={item} colors={colors} handlePress={showUserDetails} />
+						<Item
+							fonts={fonts}
+							item={item}
+							colors={colors}
+							handlePress={showUserDetails}
+						/>
 					)}
 					refreshControl={
 						<RefreshControl refreshing={loading.getAll} onRefresh={load} />

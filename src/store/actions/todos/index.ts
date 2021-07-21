@@ -31,7 +31,7 @@ export function getIndicesTodos(callback?: Function) {
 		});
 
 		try {
-			let response = await api.sendGet(`/todos`, null);
+			let response = await api.sendGet(`/todos?_expand=user`, null);
 
 			let result = await response.json();
 
