@@ -12,21 +12,16 @@ import { store } from "./src/store";
 import Screens from "./src/screens";
 import Loading from "./src/Components/Loading";
 
-var reduxIsReady = false;
-
-const persistor = persistStore(store, null, () => {
-	reduxIsReady = true;
-});
+const persistor = persistStore(store, null);
 
 const renderScreen = () => <Screens />;
+
 export default function App() {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={<Loading loading />} persistor={persistor}>
 				<PaperProvider theme={theme}>
-					<SafeAreaView style={styles.container}>
-						{reduxIsReady ? renderScreen() : null}
-					</SafeAreaView>
+					<SafeAreaView style={styles.container}>{renderScreen()}</SafeAreaView>
 				</PaperProvider>
 			</PersistGate>
 		</Provider>
